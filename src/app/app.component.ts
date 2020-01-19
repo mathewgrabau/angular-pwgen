@@ -38,6 +38,31 @@ export class AppComponent {
 
   // Button clicked handler and allows us to continue using it.
   onButtonClick() {
+    const numbers = '1234567890';
+    const letters = 'abcdefghijklmnopqrstuvwxyz';
+    const symbols = '!@#$%^&*()';
+
+    let validChars = '';
+
+    if (this.includeLetters) {
+      validChars += letters;
+    }
+    if (this.includeNumbers) {
+      validChars += numbers;
+    }
+    if (this.includeSymbols) {
+      validChars += symbols;
+    }
+
+    let generatedPassword = '';
+    // Generate some randoms now
+    for (let i = 0; i < this.length; ++i) {
+      // Compute the index and apply it
+      const c = Math.floor(Math.random() * validChars.length);
+      generatedPassword += validChars[c];
+    }
+
+    this.password = generatedPassword;
   }
 
 
