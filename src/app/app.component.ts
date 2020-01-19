@@ -9,6 +9,7 @@ export class AppComponent {
   includeLetters = false;
   includeNumbers = false;
   includeSymbols = false;
+  length = 0;
   // Property for the password and to bind it
   // Same as a constructor init.
   password = '';
@@ -25,15 +26,18 @@ export class AppComponent {
     this.includeSymbols = !this.includeSymbols;
   }
 
+  // The method is accepting the value that is being done
+  onInputLength(value : string) {
+    const parsedValue = parseInt(value);
+
+    // Ensure the input is valid
+    if (!isNaN(parsedValue)) {
+      this.length = parsedValue;
+    }
+  }
+
   // Button clicked handler and allows us to continue using it.
   onButtonClick() {
-    console.log(`
-      About to generate a password:
-      ${this.includeLetters}
-      ${this.includeNumbers}
-      ${this.includeSymbols}
-    `);
-    this.password = "AJDIOJASD";
   }
 
 

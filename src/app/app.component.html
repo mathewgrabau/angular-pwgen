@@ -4,7 +4,8 @@
   <label for="length">Enter Length</label>
 </div>
 <div>
-  <input type="text" name="length">
+  <!-- The $event is allowing it to grab the native/DOM event. -->
+  <input type="text" name="length" (input)="onInputLength($event.target.value)">
 </div>
 <div>
   <label for="letters">Use Letters</label>
